@@ -18,30 +18,30 @@ class BinarySearchTree {
 
   insert(value) {
     let node = new Node(value);
+    let current = this.root;
     if(this.root = null) {
       this.root = node;
       return this;
-    }
-    let compareTo = this.root;
-    while(true) {
-      if(value === compareTo.value) {
+    } else {
+      while(true) {
+      if(node.value === current.value) {
         return undefined;
       }
-      if(value > compareTo.value) {
-        if(compareTo.right === null) {
-          compareTo.right = node;
+      if(value > current.value) {
+        if(current.right === null) {
+          current.right = node;
           return this;
         } else {
-          compareTo = compareTo.right;
+          current = current.right;
+        }
+      } else if(value < current.value) {
+        if(current.left === null) {
+         current.left = node;
+          return this;
+        } else {
+          current = current.left;
         }
       }
-      if(value < compareTo.value) {
-        if(compareTo.left === null) {
-         compareTo.left = node;
-          return this;
-        } else {
-          compareTo = compareTo.left;
-        }
       }
     }
   }
