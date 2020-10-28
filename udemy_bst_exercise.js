@@ -19,7 +19,7 @@ class BinarySearchTree {
   insert(value) {
     let node = new Node(value);
     let current = this.root;
-    if(this.root = null) {
+    if(this.root === null) {
       this.root = node;
       return this;
     } else {
