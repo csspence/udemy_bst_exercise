@@ -67,4 +67,31 @@ class BinarySearchTree {
       }
     }
   }
+
+  breadthSearch() {
+    let node = this.root;
+    let queue = [this.root.value, ];
+    let visited = [];
+    const innerFunc = () => {
+      visited.push(node.value);
+      if(node.left !== null) {
+        queue.push(node.left.value);
+      }
+      if(node.right !== null) {
+        queue.push(node.right.value);
+      }
+      queue.shift();
+      if(queue.length > 0) {
+        if(node.left.value === queue[0]) {
+          node = node.left;
+        } else if(node.right.value === queue[0]) {
+          node = node.right;
+        }
+        return innerFunc();
+      }
+    }
+    innerFunc();
+    return visited;
+  }
+
 }
