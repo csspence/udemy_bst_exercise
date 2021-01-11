@@ -94,4 +94,23 @@ class BinarySearchTree {
     return visited;
   }
 
+  depthFirstPreOrder() {
+    let visited = [];
+    let current = this.root;
+    if(current === null) {
+      return 'This is an empty tree.'
+    }
+    let innerFunc = (node) => {
+      visited.push(node.value);
+      if(node.left !== null) {
+        innerFunc(node.left);
+      }
+      if(node.right !== null) {
+        innerFunc(node.right);
+      }
+    }
+    innerFunc(current);
+    return visited;
+  }
+
 }
