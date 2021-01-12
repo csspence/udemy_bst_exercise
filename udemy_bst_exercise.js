@@ -113,4 +113,20 @@ class BinarySearchTree {
     return visited;
   }
 
+  depthFirstPostOrder() {
+    let visited = [];
+    let current = this.root;
+    let innerFunc = (node) => {
+      if(node.left !== null) {
+        innerFunc(node.left);
+      }
+      if(node.right !== null) {
+        innerFunc(node.right);
+      }
+      visited.push(node.value);
+    }
+    innerFunc(current);
+    return visited;
+  }
+
 }
