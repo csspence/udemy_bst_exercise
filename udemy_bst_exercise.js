@@ -129,4 +129,22 @@ class BinarySearchTree {
     return visited;
   }
 
+  depthFirstInOrder() {
+    let visited = [];
+    let current = this.root;
+
+    let innerFunc = (node) => {
+      if(node.left !== null) {
+        innerFunc(node.left);
+      }
+      visited.push(node.value);
+      if(node.right !== null) {
+        innerFunc(node.right);
+      }
+    }
+    innerFunc(current);
+
+    return visited;
+  }
+
 }
